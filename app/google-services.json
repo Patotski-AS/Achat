@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "897889638514",
+    "project_id": "chatapp-4ad20",
+    "storage_bucket": "chatapp-4ad20.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:897889638514:android:3e1ebf15471c4847a9caeb",
+        "android_client_info": {
+          "package_name": "com.progerchat.chatapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "897889638514-alcsi0curtjg8fr5t4glkdk8jhpokdgt.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBNwj65Sa-0PjOXU9XXNmCup6qG1s2fY2Q"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "897889638514-alcsi0curtjg8fr5t4glkdk8jhpokdgt.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
