@@ -6,23 +6,42 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.findNavController
 import com.progerchat.achat.R
+import com.progerchat.achat.databinding.ChatFragmentBinding
+import com.progerchat.achat.databinding.LoginFragmentBinding
+import com.progerchat.achat.screens.login.LoginFragmentDirections
+import com.progerchat.achat.screens.login.LoginViewModel
 
 class ChatFragment : Fragment() {
 
     private lateinit var viewModel: ChatViewModel
+    private var _binding: ChatFragmentBinding? = null
+    private val binding get() = _binding!!
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.chat_fragment, container, false)
+        _binding = ChatFragmentBinding.inflate(inflater, container, false)
+        viewModel = ViewModelProvider(this).get(ChatViewModel::class.java)
+
+
+        binding.apply {
+            //переход на другую активити
+            button.setOnClickListener {
+                view?.findNavController()
+                    ?.navigate(ChatFragmentDirections.actionChatFragmentToLoginFragment())
+            }
+        }
+
+
+        return binding.root
     }
 
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
-        viewModel = ViewModelProvider(this).get(ChatViewModel::class.java)
-        // TODO: Use the ViewModel
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
 
 }

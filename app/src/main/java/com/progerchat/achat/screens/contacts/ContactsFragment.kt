@@ -7,22 +7,31 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.progerchat.achat.R
+import com.progerchat.achat.databinding.ContactsFragmentBinding
+import com.progerchat.achat.databinding.GenerateFragmentBinding
+import com.progerchat.achat.screens.generate.GenerateViewModel
 
 class ContactsFragment : Fragment() {
 
     private lateinit var viewModel: ContactsViewModel
+    private var _binding: ContactsFragmentBinding? = null
+    private val binding get() = _binding!!
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.contacts_fragment, container, false)
+        _binding = ContactsFragmentBinding.inflate(inflater, container, false)
+        viewModel = ViewModelProvider(this).get(ContactsViewModel::class.java)
+
+
+
+        return binding.root
     }
 
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
-        viewModel = ViewModelProvider(this).get(ContactsViewModel::class.java)
-        // TODO: Use the ViewModel
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
 
 }

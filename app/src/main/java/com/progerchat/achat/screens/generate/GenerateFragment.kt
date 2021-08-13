@@ -7,22 +7,31 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.progerchat.achat.R
+import com.progerchat.achat.databinding.GenerateFragmentBinding
+import com.progerchat.achat.databinding.HelperFragmentBinding
+import com.progerchat.achat.screens.helper.HelperViewModel
 
 class GenerateFragment : Fragment() {
 
     private lateinit var viewModel: GenerateViewModel
+    private var _binding: GenerateFragmentBinding? = null
+    private val binding get() = _binding!!
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.generate_fragment, container, false)
+        _binding = GenerateFragmentBinding.inflate(inflater, container, false)
+        viewModel = ViewModelProvider(this).get(GenerateViewModel::class.java)
+
+
+
+        return binding.root
     }
 
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
-        viewModel = ViewModelProvider(this).get(GenerateViewModel::class.java)
-        // TODO: Use the ViewModel
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
 
 }
