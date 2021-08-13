@@ -1,5 +1,31 @@
 <resources>
-    <string name="app_name">Achat</string>
+    <string name="app_name">ChatApp</string>
+    <string name="notification_channel_id" translatable="false">message_channel</string>
+    <string name="notification_title">Сообщения от мессенджера</string>
+    <string name="notification">Чат</string>
+    <string name="message">sendMessage</string>
+    <string name="sending">reading user</string>
+    <string name="notification_channel_name">channel_chatapp</string>
+    <string name="Password">Password</string>
+    <string name="Email">E-mail</string>
+    <string name="nav_header_title">Name user email</string>
+    <string name="nav_header_subtitle">this@gmail.com</string>
+    <string name="action_settings">select user</string>
+    <string name="menu_key">genKey</string>
+    <string name="menu_phone">phone</string>
+    <string name="menu_settings">settings</string>
+    <string name="menu_exit">exit</string>
+    <string name="menu_mess">message</string>
+    <string name="title_activity_nav">navActivity</string>
+
+    <string-array name="arrayname">
+        <item>Light</item>
+        <item>Dark</item>
+
+    </string-array>
+    <string name="preferencename">Theme application</string>
+    <string name="preferencenameLogin">Email user</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+
 </resources>
