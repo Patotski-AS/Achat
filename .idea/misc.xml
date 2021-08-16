@@ -3,9 +3,13 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/GoogleAndroid/Achat/app/src/main/res/layout/activity_main.xml" value="0.2" />
+        <entry key="..\:/GoogleAndroid/Achat/app/src/main/res/layout/chat_fragment.xml" value="0.2" />
         <entry key="..\:/GoogleAndroid/Achat/app/src/main/res/layout/fragment_blank.xml" value="0.1" />
         <entry key="..\:/GoogleAndroid/Achat/app/src/main/res/layout/fragment_contacts.xml" value="0.1" />
         <entry key="..\:/GoogleAndroid/Achat/app/src/main/res/layout/fragment_login.xml" value="0.1" />
+        <entry key="..\:/GoogleAndroid/Achat/app/src/main/res/layout/login_fragment.xml" value="0.25" />
+        <entry key="..\:/GoogleAndroid/Achat/app/src/main/res/xml/preferenceexample.xml" value="0.13677536231884058" />
       </map>
     </option>
   </component>
