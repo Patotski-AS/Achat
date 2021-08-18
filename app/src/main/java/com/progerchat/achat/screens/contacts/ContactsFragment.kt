@@ -6,10 +6,8 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.progerchat.achat.R
 import com.progerchat.achat.databinding.ContactsFragmentBinding
-import com.progerchat.achat.databinding.GenerateFragmentBinding
-import com.progerchat.achat.screens.generate.GenerateViewModel
+
 
 class ContactsFragment : Fragment() {
 
@@ -17,13 +15,10 @@ class ContactsFragment : Fragment() {
     private var _binding: ContactsFragmentBinding? = null
     private val binding get() = _binding!!
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
+
         _binding = ContactsFragmentBinding.inflate(inflater, container, false)
         viewModel = ViewModelProvider(this).get(ContactsViewModel::class.java)
-
 
 
         return binding.root
