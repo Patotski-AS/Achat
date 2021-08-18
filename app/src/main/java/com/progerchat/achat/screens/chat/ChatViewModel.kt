@@ -3,7 +3,7 @@ package com.progerchat.achat.screens.chat
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.progerchat.achat.model.Contact
+import com.progerchat.achat.screens.contacts.Contact
 
 class ChatViewModel : ViewModel() {
 
