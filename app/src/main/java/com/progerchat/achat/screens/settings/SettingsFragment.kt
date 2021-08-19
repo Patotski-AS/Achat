@@ -24,8 +24,6 @@ class SettingsFragment : Fragment() {
         _binding = SettingsFragmentBinding.inflate(inflater, container, false)
         viewModel = ViewModelProvider(this).get(SettingsViewModel::class.java)
 
-
-
         return binding.root
     }
 

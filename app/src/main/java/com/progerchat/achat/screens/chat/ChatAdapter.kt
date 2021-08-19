@@ -4,13 +4,13 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.progerchat.achat.databinding.ItemContactsBinding
-import com.progerchat.achat.screens.contacts.Contact
+import com.progerchat.achat.model.Contact
 import com.progerchat.achat.utils.OnListClickListener
 
 
 class ChatAdapter(private val listener: OnListClickListener,
                   private val contacts: MutableList<Contact>) :
-    RecyclerView.Adapter<ChatAdapter.ViewHolder>() {
+    RecyclerView.Adapter<ChatAdapter.ViewHolder>()  {
 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -57,7 +57,9 @@ class ChatAdapter(private val listener: OnListClickListener,
 
     fun deleteItem(p:Int) {
         contacts.removeAt(p)
+        notifyDataSetChanged()
     }
+
 
 
 }
