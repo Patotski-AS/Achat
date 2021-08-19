@@ -1,6 +1,7 @@
 package com.progerchat.achat.database.messages
 
 import androidx.annotation.WorkerThread
+import com.progerchat.achat.database.messages.MessageDAO
 import com.progerchat.achat.model.Message
 import kotlinx.coroutines.flow.Flow
 

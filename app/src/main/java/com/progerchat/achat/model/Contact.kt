@@ -1,4 +1,3 @@
 package com.progerchat.achat.model
 
-class Contact {
-}
+data class Contact (var name: String = "@", var icon:String = "")

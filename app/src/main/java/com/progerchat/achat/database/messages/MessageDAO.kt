@@ -4,23 +4,26 @@ import androidx.room.*
 import com.progerchat.achat.model.Message
 import kotlinx.coroutines.flow.Flow
 
+
 @Dao
 interface MessageDAO {
-        @Insert(onConflict = OnConflictStrategy.REPLACE)
-        suspend fun insert(vararg message: Message)
 
-        @Update
-        suspend fun update(message: Message)
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    suspend fun insert(vararg message: Message)
 
-        @Query("SELECT * from messages WHERE id = :key")
-        suspend fun get(key: Int): Message?
+    @Update
+    suspend fun update(message: Message)
 
-        @Delete
-        suspend fun delete(message: Message)
+    @Query("SELECT * from messages WHERE id = :key")
+    suspend fun get(key: Int): Message?
 
-        @Query("DELETE FROM messages")
-        suspend fun clear()
+    @Delete
+    suspend fun delete(message: Message)
 
-        @Query("SELECT * FROM messages")
-        fun getAllMessages(): Flow<List<Message>>
+    @Query("DELETE FROM messages")
+    suspend fun clear()
+
+    @Query("SELECT * FROM messages")
+    fun getAllMessages(): Flow<List<Message>>
+
 }
