@@ -20,7 +20,7 @@
         android:title="@string/menu_mess" />
 
     <item
-        android:id="@+id/settingsFragment"
+        android:id="@+id/settingsActivity"
         android:icon="@drawable/ic_baseline_settings_24"
         android:title="@string/menu_settings" />
     <item
