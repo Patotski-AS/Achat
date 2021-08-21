@@ -38,9 +38,8 @@
         android:name="com.progerchat.achat.screens.phone.PhoneFragment"
         android:label="phone_fragment"
         tools:layout="@layout/phone_fragment" />
-    <fragment
-        android:id="@+id/settingsFragment"
-        android:name="com.progerchat.achat.screens.settings.SettingsFragment"
-        android:label="settings_fragment"
-        tools:layout="@layout/settings_fragment" />
+    <activity
+        android:id="@+id/settingsActivity"
+        android:name="com.progerchat.achat.screens.settings.SettingsActivity"
+        android:label="SettingsActivity" />
 </navigation>

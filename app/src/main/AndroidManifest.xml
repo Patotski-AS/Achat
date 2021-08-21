@@ -9,10 +9,15 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Achat">
+        <activity
+            android:name=".screens.settings.SettingsActivity"
+            android:exported="true"
+            android:label="@string/title_activity_settings" />
+
         <service
             android:name=".service.MessageService"
             android:enabled="true"
-            android:exported="true"></service>
+            android:exported="true" />
 
         <activity
             android:name=".MainActivity"
