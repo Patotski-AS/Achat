@@ -11,13 +11,14 @@ import com.progerchat.achat.databinding.ContactsFragmentBinding
 import android.util.Log
 import androidx.lifecycle.Observer
 import androidx.navigation.findNavController
+import androidx.recyclerview.widget.GridLayoutManager
 import com.progerchat.achat.database.messages.MessageDB
 import com.progerchat.achat.database.messages.MessageRepository
 import com.progerchat.achat.model.Message
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.SupervisorJob
 
-class ContactsFragment : Fragment() {
+class ContactsFragment : Fragment(), ContactListener {
 
     private val applicationScope = CoroutineScope(SupervisorJob())
     private val database by lazy { MessageDB.getInstance(requireActivity(), applicationScope) }
@@ -29,26 +30,32 @@ class ContactsFragment : Fragment() {
     private var _binding: ContactsFragmentBinding? = null
     private val binding get() = _binding!!
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
+    private val contactAdapter = ContactsAdapter(this)
+
+
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View {
 
         _binding = ContactsFragmentBinding.inflate(inflater, container, false)
 
         val application = requireNotNull(this).activity?.application
 
         val viewModelFactory = application?.let { ContactFactory(repository, it) }
-        _viewModel =
-            viewModelFactory?.let { ViewModelProvider(this, it) }?.get(ContactsViewModel::class.java)
-
-        viewModel?.elements?.observe(viewLifecycleOwner, Observer {
-            Log.i("MyLog",it.toString())
-        })
 
         binding.apply {
-            //button.setOnClickListener {
-              //  viewModel?.insert(Message())
-            //}
+            recycler.adapter = contactAdapter
+            recycler.layoutManager = GridLayoutManager(requireActivity(), 1)
         }
+        _viewModel =
+            viewModelFactory?.let { ViewModelProvider(this, it) }
+                ?.get(ContactsViewModel::class.java)
 
+        viewModel?.contacts?.observe(viewLifecycleOwner, Observer {
+            contactAdapter.submitList(it)
+        })
 
         return binding.root
     }
@@ -56,6 +63,10 @@ class ContactsFragment : Fragment() {
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
+    }
+
+    override fun onClick(id: Int) {
+        TODO("Not yet implemented")
     }
 
 }
