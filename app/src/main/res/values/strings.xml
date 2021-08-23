@@ -49,5 +49,6 @@
     </string>
     <string name="attachment_summary_off">Only download attachments when manually requested</string>
     <string name="menu_feedback">feedback</string>
+    <string name="menu_contacts">Contacts</string>
 
 </resources>

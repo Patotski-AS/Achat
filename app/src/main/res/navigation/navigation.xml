@@ -42,4 +42,9 @@
         android:id="@+id/settingsActivity"
         android:name="com.progerchat.achat.screens.settings.SettingsActivity"
         android:label="SettingsActivity" />
+    <fragment
+        android:id="@+id/feedbackFragment"
+        android:name="com.progerchat.achat.screens.feedback.FeedbackFragment"
+        android:label="feedback_fragment"
+        tools:layout="@layout/feedback_fragment" />
 </navigation>

@@ -7,10 +7,13 @@ import com.progerchat.achat.database.messages.MessageRepository
 import com.progerchat.achat.screens.chat.ChatViewModel
 
 
-class ContactFactory (private val repository: MessageRepository, private val application: Application) : ViewModelProvider.Factory {
+class ContactFactory(
+    private val repository: MessageRepository,
+    private val application: Application
+) : ViewModelProvider.Factory {
 
     override fun <T : ViewModel?> create(modelClass: Class<T>): T {
-        if (modelClass.isAssignableFrom(ChatViewModel::class.java)) {
+        if (modelClass.isAssignableFrom(ContactsViewModel::class.java)) {
             return ContactsViewModel(repository, application) as T
         }
         throw IllegalArgumentException("Unknown ViewModel class")

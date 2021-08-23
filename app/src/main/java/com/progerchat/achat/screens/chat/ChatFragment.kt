@@ -17,7 +17,7 @@ class ChatFragment : Fragment(), OnListClickListener {
     private lateinit var viewModel: ChatViewModel
     private var _binding: ChatFragmentBinding? = null
     private val binding get() = _binding!!
-    private var adapter:ChatAdapter? = null
+    private var adapter: ChatAdapter? = null
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -57,7 +57,7 @@ class ChatFragment : Fragment(), OnListClickListener {
         adapter?.deleteItem(position)
     }
 
-    override fun nextFragment(){
+    override fun nextFragment() {
         view?.findNavController()
             ?.navigate(ChatFragmentDirections.actionChatFragmentToLoginFragment())
     }
