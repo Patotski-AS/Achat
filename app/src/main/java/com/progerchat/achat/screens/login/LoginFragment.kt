@@ -14,6 +14,7 @@ import com.google.android.gms.tasks.OnCompleteListener
 import com.google.firebase.auth.AuthResult
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseAuth.AuthStateListener
+import com.google.firebase.database.FirebaseDatabase
 import com.progerchat.achat.databinding.LoginFragmentBinding
 
 class LoginFragment : Fragment() {
@@ -45,12 +46,15 @@ class LoginFragment : Fragment() {
                                     stateLogin("Вы не авторизованы")
                                 else {
 
-                                    if (viewModel.mFirebaseUser?.value!!.isEmailVerified) {
-                                        viewModel.getModel(viewModel.user, "")
-                                        view?.findNavController()?.navigate(LoginFragmentDirections.actionLoginFragmentToChatFragment())
-                                    }
-                                    else
-                                        stateLogin("Пожалуйста авторизуйте почту")
+                                    viewModel.getCorrectByte(viewModel.mAuth!!.value?.currentUser?.uid.toString())
+                                    viewModel.correctByte?.observe(viewLifecycleOwner, {
+
+                                        if (viewModel.mFirebaseUser?.value!!.isEmailVerified) {
+                                            viewModel.getModel(viewModel.user, "")
+                                            successIn()
+                                        } else
+                                            stateLogin("Пожалуйста авторизуйте почту")
+                                    })
 
                                 }
 
@@ -72,6 +76,7 @@ class LoginFragment : Fragment() {
                             else {
                                 stateLogin("Проверьте почту")
                                 viewModel.mFirebaseUser?.value?.sendEmailVerification()
+                                viewModel.addBytesFirebase(viewModel.initKey(viewModel.mAuth!!.value?.currentUser?.uid.toString()), viewModel.mAuth!!.value?.currentUser?.uid.toString() )
                             }
 
                         })
@@ -95,9 +100,14 @@ class LoginFragment : Fragment() {
             if (it != null) {
 
                 if (viewModel.mAuth!!.value?.currentUser?.isEmailVerified == true){
-                    viewModel.getModel(viewModel.mAuth!!.value?.currentUser?.email, "")
-                    view?.findNavController()
-                        ?.navigate(LoginFragmentDirections.actionLoginFragmentToChatFragment())
+
+                    viewModel.getCorrectByte(viewModel.mAuth!!.value?.currentUser?.uid.toString())
+
+                    viewModel.correctByte?.observe(viewLifecycleOwner, {
+                        viewModel.getModel(viewModel.mAuth!!.value?.currentUser?.email, "")
+                        successIn()
+                    })
+
                 }
             }
 
@@ -133,6 +143,11 @@ class LoginFragment : Fragment() {
         if (mAuthListener != null)
             viewModel.mAuth!!.value?.removeAuthStateListener(mAuthListener!!)
 
+    }
+
+    private fun successIn(){
+        if (viewModel.correctByte?.value == true)
+            view?.findNavController()?.navigate(LoginFragmentDirections.actionLoginFragmentToChatFragment())
     }
 
 }
