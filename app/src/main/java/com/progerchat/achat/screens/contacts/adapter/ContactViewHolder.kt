@@ -1,4 +1,4 @@
-package com.progerchat.achat.screens.contacts
+package com.progerchat.achat.screens.contacts.adapter
 
 import android.content.Context
 import androidx.recyclerview.widget.RecyclerView

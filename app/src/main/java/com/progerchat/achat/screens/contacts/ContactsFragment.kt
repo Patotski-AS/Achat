@@ -8,13 +8,12 @@ import android.view.View
 import android.view.ViewGroup
 import com.progerchat.achat.databinding.ContactsFragmentBinding
 
-import android.util.Log
 import androidx.lifecycle.Observer
-import androidx.navigation.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import com.progerchat.achat.database.messages.MessageDB
 import com.progerchat.achat.database.messages.MessageRepository
-import com.progerchat.achat.model.Message
+import com.progerchat.achat.screens.contacts.adapter.ContactListener
+import com.progerchat.achat.screens.contacts.adapter.ContactsAdapter
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.SupervisorJob
 
