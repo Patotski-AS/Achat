@@ -1,4 +1,4 @@
-package com.progerchat.achat.screens.contacts
+package com.progerchat.achat.screens.contacts.adapter
 
 import androidx.annotation.Nullable
 import androidx.recyclerview.widget.DiffUtil
