@@ -10,9 +10,10 @@
         <entry key="..\:/GoogleAndroid/Achat/app/src/main/res/drawable/ic_launcher_background.xml" value="0.3828125" />
         <entry key="..\:/GoogleAndroid/Achat/app/src/main/res/drawable/side_nav_bar.xml" value="0.3828125" />
         <entry key="..\:/GoogleAndroid/Achat/app/src/main/res/layout/activity_main.xml" value="0.2" />
+        <entry key="..\:/GoogleAndroid/Achat/app/src/main/res/layout/add_conference.xml" value="0.24444444444444444" />
         <entry key="..\:/GoogleAndroid/Achat/app/src/main/res/layout/chat_fragment.xml" value="0.25" />
         <entry key="..\:/GoogleAndroid/Achat/app/src/main/res/layout/contacts_fragment.xml" value="0.151268115942029" />
-        <entry key="..\:/GoogleAndroid/Achat/app/src/main/res/layout/feedback_fragment.xml" value="0.36666666666666664" />
+        <entry key="..\:/GoogleAndroid/Achat/app/src/main/res/layout/feedback_fragment.xml" value="0.18" />
         <entry key="..\:/GoogleAndroid/Achat/app/src/main/res/layout/fragment_blank.xml" value="0.1" />
         <entry key="..\:/GoogleAndroid/Achat/app/src/main/res/layout/fragment_contacts.xml" value="0.1" />
         <entry key="..\:/GoogleAndroid/Achat/app/src/main/res/layout/fragment_feedback.xml" value="0.11944444444444445" />

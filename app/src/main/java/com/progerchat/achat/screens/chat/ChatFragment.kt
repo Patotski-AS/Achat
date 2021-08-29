@@ -10,9 +10,10 @@ import androidx.navigation.findNavController
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.RecyclerView
 import com.progerchat.achat.databinding.ChatFragmentBinding
+import com.progerchat.achat.screens.connection.FragmentConnection
 import com.progerchat.achat.utils.OnListClickListener
 
-class ChatFragment : Fragment(), OnListClickListener {
+class ChatFragment : Fragment(), OnListClickListener, FragmentConnection.DialogListener {
 
     private lateinit var viewModel: ChatViewModel
     private var _binding: ChatFragmentBinding? = null
@@ -33,6 +34,9 @@ class ChatFragment : Fragment(), OnListClickListener {
 
         binding.list.adapter = adapter
 
+        binding.floatingActionButton.setOnClickListener {
+                //
+        }
 
         val swipeToDeleteCallBack = object : SwipeChat() {
             override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
@@ -61,5 +65,10 @@ class ChatFragment : Fragment(), OnListClickListener {
         view?.findNavController()
             ?.navigate(ChatFragmentDirections.actionChatFragmentToLoginFragment())
     }
+
+    override fun onAddAccount(e: String) {
+        // принимаем добавленный контакт
+    }
+
 
 }
