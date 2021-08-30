@@ -1,16 +1,19 @@
 package com.progerchat.achat.screens.chat
 
+import android.content.Context
 import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.RecyclerView
 import com.progerchat.achat.databinding.ChatFragmentBinding
 import com.progerchat.achat.screens.connection.FragmentConnection
+import com.progerchat.achat.utils.IconHeader
 import com.progerchat.achat.utils.OnListClickListener
 
 class ChatFragment : Fragment(), OnListClickListener, FragmentConnection.DialogListener {
@@ -19,6 +22,8 @@ class ChatFragment : Fragment(), OnListClickListener, FragmentConnection.DialogL
     private var _binding: ChatFragmentBinding? = null
     private val binding get() = _binding!!
     private var adapter: ChatAdapter? = null
+
+    private lateinit var listener: IconHeader
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -70,5 +75,13 @@ class ChatFragment : Fragment(), OnListClickListener, FragmentConnection.DialogL
         // принимаем добавленный контакт
     }
 
+    override fun onAttach(context: Context) {
+        super.onAttach(context)
+        if (context is IconHeader)
+            listener = context
+        else
+            Toast.makeText(context, "Repeat please, fragment not attach", Toast.LENGTH_LONG).show()
+
+    }
 
 }
