@@ -3,7 +3,10 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/GoogleAndroid/Achat/app/src/main/res/drawable/ic_baseline_add_circle_24.xml" value="0.2421875" />
+        <entry key="..\:/GoogleAndroid/Achat/app/src/main/res/drawable/ic_baseline_architecture_24.xml" value="0.2421875" />
         <entry key="..\:/GoogleAndroid/Achat/app/src/main/res/drawable/ic_baseline_chat_24.xml" value="0.1" />
+        <entry key="..\:/GoogleAndroid/Achat/app/src/main/res/drawable/ic_baseline_data_saver_on_24.xml" value="0.2421875" />
         <entry key="..\:/GoogleAndroid/Achat/app/src/main/res/drawable/ic_baseline_exit_to_app_24.xml" value="0.2064814814814815" />
         <entry key="..\:/GoogleAndroid/Achat/app/src/main/res/drawable/ic_baseline_feedback_24.xml" value="0.2064814814814815" />
         <entry key="..\:/GoogleAndroid/Achat/app/src/main/res/drawable/ic_baseline_vpn_key_24.xml" value="0.11666666666666667" />
