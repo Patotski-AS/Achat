@@ -10,12 +10,10 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.lifecycle.Observer
 import androidx.navigation.findNavController
-import androidx.navigation.fragment.findNavController
 import com.google.android.gms.tasks.OnCompleteListener
 import com.google.firebase.auth.AuthResult
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseAuth.AuthStateListener
-import com.google.firebase.database.FirebaseDatabase
 import com.progerchat.achat.databinding.LoginFragmentBinding
 
 class LoginFragment : Fragment() {
@@ -148,7 +146,7 @@ class LoginFragment : Fragment() {
 
     private fun successIn(){
        // if (viewModel.correctByte?.value == true)
-            view?.findNavController()?.navigate(LoginFragmentDirections.actionLoginFragmentToChatFragment())
+            view?.findNavController()?.navigate(LoginFragmentDirections.actionLoginFragmentToChatFragment(null))
     }
 
 }

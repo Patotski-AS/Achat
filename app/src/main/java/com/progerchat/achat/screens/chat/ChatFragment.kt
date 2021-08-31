@@ -10,10 +10,9 @@ import androidx.navigation.findNavController
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.RecyclerView
 import com.progerchat.achat.databinding.ChatFragmentBinding
-import com.progerchat.achat.screens.connection.FragmentConnection
 import com.progerchat.achat.utils.OnListClickListener
 
-class ChatFragment : Fragment(), OnListClickListener, FragmentConnection.DialogListener {
+class ChatFragment : Fragment(), OnListClickListener {
 
     private lateinit var viewModel: ChatViewModel
     private var _binding: ChatFragmentBinding? = null
@@ -27,7 +26,6 @@ class ChatFragment : Fragment(), OnListClickListener, FragmentConnection.DialogL
         _binding = ChatFragmentBinding.inflate(inflater, container, false)
         viewModel = ViewModelProvider(this).get(ChatViewModel::class.java)
 
-
         adapter = viewModel.contacts?.value?.let {
             ChatAdapter(this, it.toMutableList())
         }
@@ -35,7 +33,8 @@ class ChatFragment : Fragment(), OnListClickListener, FragmentConnection.DialogL
         binding.list.adapter = adapter
 
         binding.floatingActionButton.setOnClickListener {
-                //
+            view?.findNavController()
+                ?.navigate(ChatFragmentDirections.actionChatFragmentToFragmentConnection())
         }
 
         val swipeToDeleteCallBack = object : SwipeChat() {
@@ -50,6 +49,12 @@ class ChatFragment : Fragment(), OnListClickListener, FragmentConnection.DialogL
 
         return binding.root
     }
+
+    private fun onAddAccount() {
+        // принимаем добавленный контакт
+        val email = ChatFragmentArgs.fromBundle(requireArguments()).email
+    }
+
 
     override fun onDestroyView() {
         super.onDestroyView()
@@ -66,9 +71,6 @@ class ChatFragment : Fragment(), OnListClickListener, FragmentConnection.DialogL
             ?.navigate(ChatFragmentDirections.actionChatFragmentToLoginFragment())
     }
 
-    override fun onAddAccount(e: String) {
-        // принимаем добавленный контакт
-    }
 
 
 }
