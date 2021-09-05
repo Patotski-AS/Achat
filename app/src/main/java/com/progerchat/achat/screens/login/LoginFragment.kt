@@ -148,7 +148,7 @@ class LoginFragment : Fragment() {
 
     private fun successIn(){
        // if (viewModel.correctByte?.value == true)
-            view?.findNavController()?.navigate(LoginFragmentDirections.actionLoginFragmentToChatFragment())
+        view?.findNavController()?.navigate(LoginFragmentDirections.actionLoginFragmentToChatFragment("test"))
     }
 
 }

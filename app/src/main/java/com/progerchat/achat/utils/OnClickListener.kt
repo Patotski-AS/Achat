@@ -4,8 +4,3 @@ interface OnListClickListener {
     fun onDeleteClick(position: Int)
     fun nextFragment()
 }
-
-interface IconHeader {
-    fun getIcon(str:String)
-    fun push()
-}

@@ -22,7 +22,15 @@
         <action
             android:id="@+id/action_chatFragment_to_loginFragment"
             app:destination="@id/loginFragment" />
+        <action
+            android:id="@+id/action_chatFragment_to_fragmentConnection"
+            app:destination="@id/fragmentConnection" />
+        <argument
+            android:name="email"
+            app:argType="string"
+            app:nullable="true" />
     </fragment>
+
     <fragment
         android:id="@+id/contactsFragment"
         android:name="com.progerchat.achat.screens.contacts.ContactsFragment"
@@ -47,4 +55,18 @@
         android:name="com.progerchat.achat.screens.feedback.FeedbackFragment"
         android:label="feedback_fragment"
         tools:layout="@layout/feedback_fragment" />
+    <fragment
+        android:id="@+id/fragmentConnection"
+        android:name="com.progerchat.achat.screens.connection.FragmentConnection"
+        android:label="FragmentConnection"
+        tools:layout="@layout/add_conference">
+        <action
+            android:id="@+id/action_fragmentConnection_to_chatFragment"
+            app:destination="@id/chatFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/profileFragment"
+        android:name="com.progerchat.achat.screens.profile.ProfileFragment"
+        android:label="profile_fragment"
+        tools:layout="@layout/profile_fragment" />
 </navigation>

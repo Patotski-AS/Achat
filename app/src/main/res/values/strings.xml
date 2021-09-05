@@ -58,5 +58,7 @@
     <string name="e_mail_boba">e-mail Boba</string>
     <string name="dismiss">cancel</string>
     <string name="ok">Ok</string>
+    <string name="e_mail_username">E-mail (username)</string>
+    <string name="profile">Profile</string>
 
 </resources>

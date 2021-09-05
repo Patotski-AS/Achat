@@ -12,18 +12,15 @@ import androidx.navigation.findNavController
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.RecyclerView
 import com.progerchat.achat.databinding.ChatFragmentBinding
-import com.progerchat.achat.screens.connection.FragmentConnection
-import com.progerchat.achat.utils.IconHeader
 import com.progerchat.achat.utils.OnListClickListener
 
-class ChatFragment : Fragment(), OnListClickListener, FragmentConnection.DialogListener {
+class ChatFragment : Fragment(), OnListClickListener {
 
     private lateinit var viewModel: ChatViewModel
     private var _binding: ChatFragmentBinding? = null
     private val binding get() = _binding!!
     private var adapter: ChatAdapter? = null
 
-    private lateinit var listener: IconHeader
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -40,7 +37,8 @@ class ChatFragment : Fragment(), OnListClickListener, FragmentConnection.DialogL
         binding.list.adapter = adapter
 
         binding.floatingActionButton.setOnClickListener {
-                //
+            view?.findNavController()
+                ?.navigate(ChatFragmentDirections.actionChatFragmentToFragmentConnection())
         }
 
         val swipeToDeleteCallBack = object : SwipeChat() {
@@ -71,17 +69,10 @@ class ChatFragment : Fragment(), OnListClickListener, FragmentConnection.DialogL
             ?.navigate(ChatFragmentDirections.actionChatFragmentToLoginFragment())
     }
 
-    override fun onAddAccount(e: String) {
+    private fun onAddAccount() {
         // принимаем добавленный контакт
+        val email = ChatFragmentArgs.fromBundle(requireArguments()).email // add to viewModel
     }
 
-    override fun onAttach(context: Context) {
-        super.onAttach(context)
-        if (context is IconHeader)
-            listener = context
-        else
-            Toast.makeText(context, "Repeat please, fragment not attach", Toast.LENGTH_LONG).show()
-
-    }
 
 }
