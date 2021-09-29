@@ -20,11 +20,17 @@
         android:label="chat_fragment"
         tools:layout="@layout/chat_fragment" >
         <action
+            android:id="@+id/action_chatFragment_to_messagesFragment"
+            app:destination="@id/messagesFragment" />
+        <action
             android:id="@+id/action_chatFragment_to_loginFragment"
             app:destination="@id/loginFragment" />
         <action
             android:id="@+id/action_chatFragment_to_fragmentConnection"
             app:destination="@id/fragmentConnection" />
+        <action
+            android:id="@+id/action_chatFragment_to_fragmentGenerate"
+            app:destination="@id/generateFragment" />
         <argument
             android:name="email"
             app:argType="string"
@@ -69,4 +75,21 @@
         android:name="com.progerchat.achat.screens.profile.ProfileFragment"
         android:label="profile_fragment"
         tools:layout="@layout/profile_fragment" />
+    <fragment
+        android:id="@+id/generateFragment"
+        android:name="com.progerchat.achat.screens.generate.GenerateFragment"
+        android:label="generate_fragment"
+        tools:layout="@layout/generate_fragment">
+        <action
+                 android:id="@+id/action_generateFragment_to_chatFragment"
+                 app:destination="@id/chatFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/messagesFragment"
+        android:name="com.progerchat.achat.screens.message.MessagesFragment"
+        android:label="MessagesFragment">
+        <action
+            android:id="@+id/action_messagesFragment_to_chatFragment"
+            app:destination="@id/chatFragment" />/>
+    </fragment>
 </navigation>

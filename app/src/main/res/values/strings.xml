@@ -60,5 +60,7 @@
     <string name="ok">Ok</string>
     <string name="e_mail_username">E-mail (username)</string>
     <string name="profile">Profile</string>
+    <string name="replace_master_key">Replace master-key</string>
+    <string name="input_message">Input message</string>
 
 </resources>

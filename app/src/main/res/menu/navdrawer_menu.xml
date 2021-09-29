@@ -6,7 +6,7 @@
 
 <group android:checkableBehavior="single">
     <item
-        android:id="@+id/nav_key"
+        android:id="@+id/generateFragment"
         android:icon="@drawable/ic_baseline_vpn_key_24"
         android:title="@string/menu_key" />
     <item
@@ -15,7 +15,7 @@
         android:title="@string/menu_phone" />
 
     <item
-        android:id="@+id/nav_message"
+        android:id="@+id/chatFragment"
         android:icon="@drawable/ic_baseline_message_24"
         android:title="@string/menu_mess" />
 

@@ -1,13 +1,11 @@
 package com.progerchat.achat.screens.chat
 
-import android.content.Context
 import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.RecyclerView
@@ -66,7 +64,12 @@ class ChatFragment : Fragment(), OnListClickListener {
 
     override fun nextFragment() {
         view?.findNavController()
-            ?.navigate(ChatFragmentDirections.actionChatFragmentToLoginFragment())
+            ?.navigate(ChatFragmentDirections.actionChatFragmentToMessagesFragment())
+    }
+
+    override fun replaceKeyContact() {
+        TODO("Not yet implemented")
+        // replace contact-key
     }
 
     private fun onAddAccount() {

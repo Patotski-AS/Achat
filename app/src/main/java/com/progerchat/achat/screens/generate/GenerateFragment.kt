@@ -24,7 +24,9 @@ class GenerateFragment : Fragment() {
         _binding = GenerateFragmentBinding.inflate(inflater, container, false)
         viewModel = ViewModelProvider(this).get(GenerateViewModel::class.java)
 
+        binding.replaceMasterKey.setOnClickListener {
 
+        }
 
         return binding.root
     }

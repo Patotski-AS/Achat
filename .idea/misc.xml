@@ -13,21 +13,25 @@
         <entry key="..\:/GoogleAndroid/Achat/app/src/main/res/drawable/ic_baseline_phone_24.xml" value="0.20092592592592592" />
         <entry key="..\:/GoogleAndroid/Achat/app/src/main/res/drawable/ic_baseline_vpn_key_24.xml" value="0.11666666666666667" />
         <entry key="..\:/GoogleAndroid/Achat/app/src/main/res/drawable/ic_launcher_background.xml" value="0.3828125" />
+        <entry key="..\:/GoogleAndroid/Achat/app/src/main/res/drawable/message_list.xml" value="0.1" />
         <entry key="..\:/GoogleAndroid/Achat/app/src/main/res/drawable/side_nav_bar.xml" value="0.3828125" />
         <entry key="..\:/GoogleAndroid/Achat/app/src/main/res/layout/activity_main.xml" value="0.2" />
         <entry key="..\:/GoogleAndroid/Achat/app/src/main/res/layout/add_conference.xml" value="0.24444444444444444" />
         <entry key="..\:/GoogleAndroid/Achat/app/src/main/res/layout/chat_fragment.xml" value="0.25" />
-        <entry key="..\:/GoogleAndroid/Achat/app/src/main/res/layout/contacts_fragment.xml" value="0.151268115942029" />
+        <entry key="..\:/GoogleAndroid/Achat/app/src/main/res/layout/contacts_fragment.xml" value="0.22" />
         <entry key="..\:/GoogleAndroid/Achat/app/src/main/res/layout/feedback_fragment.xml" value="0.18" />
         <entry key="..\:/GoogleAndroid/Achat/app/src/main/res/layout/fragment_blank.xml" value="0.1" />
         <entry key="..\:/GoogleAndroid/Achat/app/src/main/res/layout/fragment_contacts.xml" value="0.1" />
         <entry key="..\:/GoogleAndroid/Achat/app/src/main/res/layout/fragment_feedback.xml" value="0.11944444444444445" />
         <entry key="..\:/GoogleAndroid/Achat/app/src/main/res/layout/fragment_login.xml" value="0.1" />
-        <entry key="..\:/GoogleAndroid/Achat/app/src/main/res/layout/generate_fragment.xml" value="0.11944444444444445" />
+        <entry key="..\:/GoogleAndroid/Achat/app/src/main/res/layout/fragment_messages.xml" value="0.3380208333333333" />
+        <entry key="..\:/GoogleAndroid/Achat/app/src/main/res/layout/generate_fragment.xml" value="0.25" />
         <entry key="..\:/GoogleAndroid/Achat/app/src/main/res/layout/helper_fragment.xml" value="0.1" />
-        <entry key="..\:/GoogleAndroid/Achat/app/src/main/res/layout/item_contacts.xml" value="0.1" />
+        <entry key="..\:/GoogleAndroid/Achat/app/src/main/res/layout/item_contacts.xml" value="0.33" />
         <entry key="..\:/GoogleAndroid/Achat/app/src/main/res/layout/login_fragment.xml" value="0.25" />
         <entry key="..\:/GoogleAndroid/Achat/app/src/main/res/layout/message_fragment.xml" value="0.1398148148148148" />
+        <entry key="..\:/GoogleAndroid/Achat/app/src/main/res/layout/message_list.xml" value="0.5" />
+        <entry key="..\:/GoogleAndroid/Achat/app/src/main/res/layout/messages_fragment.xml" value="0.18" />
         <entry key="..\:/GoogleAndroid/Achat/app/src/main/res/layout/nav_header.xml" value="0.33" />
         <entry key="..\:/GoogleAndroid/Achat/app/src/main/res/layout/phone_fragment.xml" value="0.36666666666666664" />
         <entry key="..\:/GoogleAndroid/Achat/app/src/main/res/layout/profile_fragment.xml" value="0.1940928270042194" />

@@ -2,15 +2,17 @@ package com.progerchat.achat.screens.chat
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.progerchat.achat.databinding.ItemContactsBinding
 import com.progerchat.achat.model.Contact
+import com.progerchat.achat.screens.contacts.adapter.ContactsDiffCallback
 import com.progerchat.achat.utils.OnListClickListener
 
 
 class ChatAdapter(private val listener: OnListClickListener,
                   private val contacts: MutableList<Contact>) :
-    RecyclerView.Adapter<ChatAdapter.ViewHolder>()  {
+    ListAdapter<Contact, ChatAdapter.ViewHolder>(ContactsDiffCallback())  {
 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -44,6 +46,10 @@ class ChatAdapter(private val listener: OnListClickListener,
 
             vBinding.imageUser.setOnClickListener{
                 listener.nextFragment()
+            }
+
+            vBinding.imageGenerate.setOnClickListener {
+                listener.replaceKeyContact()
             }
 
         }
