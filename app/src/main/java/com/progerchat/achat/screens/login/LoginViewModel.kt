@@ -1,18 +1,14 @@
 package com.progerchat.achat.screens.login
 
-
 import android.text.TextUtils
-import android.text.format.DateFormat
 import android.util.Log
-import android.view.View
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.firebase.ui.database.FirebaseListAdapter
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
-import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.FirebaseDatabase
+import com.progerchat.achat.database.auth.AuthDAO
 import com.progerchat.achat.utils.StateLogin
 import com.progerchat.achat.utils.UserModel
 import com.progerchat.achat.utils.array
@@ -23,7 +19,7 @@ import javax.crypto.KeyGenerator
 import javax.crypto.spec.SecretKeySpec
 import kotlin.math.abs
 
-class LoginViewModel : ViewModel() {
+class LoginViewModel(val db: AuthDAO): ViewModel() {
 
     private var _mAuth: MutableLiveData<FirebaseAuth>? = null
     val mAuth: LiveData<FirebaseAuth>? get() = _mAuth
@@ -56,7 +52,6 @@ class LoginViewModel : ViewModel() {
         _mAuth = MutableLiveData<FirebaseAuth>()
         _mFirebaseUser = MutableLiveData<FirebaseUser>()
     }
-
 
      fun validateForm(email: String, password: String): StateLogin {
 

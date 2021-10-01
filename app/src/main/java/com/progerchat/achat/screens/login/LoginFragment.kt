@@ -16,22 +16,36 @@ import com.google.firebase.auth.AuthResult
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseAuth.AuthStateListener
 import com.google.firebase.database.FirebaseDatabase
+import com.progerchat.achat.database.auth.AuthDB
 import com.progerchat.achat.databinding.LoginFragmentBinding
+import com.progerchat.achat.model.Auth
+import kotlinx.coroutines.GlobalScope
 
-class LoginFragment : Fragment() {
-    private lateinit var viewModel: LoginViewModel
+
+class LoginFragment: Fragment() {
+
+    private lateinit var viewModel:LoginViewModel
+
     private var _binding: LoginFragmentBinding? = null
     private val binding get() = _binding!!
 
-    var mAuthListener: AuthStateListener? = null
+    private var mAuthListener: AuthStateListener? = null
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
 
         _binding = LoginFragmentBinding.inflate(inflater, container, false)
-        viewModel = ViewModelProvider(this).get(LoginViewModel::class.java)
+
+
+        val db =  AuthDB.getInstance(requireContext()).authDao
+
+
+
+       // db.insert(Auth(1, "", ""))
+       // viewModel = ViewModelProvider(this, LoginFactory(db)).get(LoginViewModel::class.java)
+
 
 
         binding.emailSignInButton.setOnClickListener {
@@ -41,25 +55,26 @@ class LoginFragment : Fragment() {
                 activity?.let { result ->
                     viewModel.mAuth!!.value?.signInWithEmailAndPassword(viewModel.user, viewModel.password)
                         ?.addOnCompleteListener(
-                            result, OnCompleteListener<AuthResult?> { task ->
+                            result
+                        ) { task ->
 
-                                if (!task.isSuccessful)
-                                    stateLogin("Вы не авторизованы")
-                                else {
+                            if (!task.isSuccessful)
+                                stateLogin("Вы не авторизованы")
+                            else {
 
-                                    viewModel.getCorrectByte(viewModel.mAuth!!.value?.currentUser?.uid.toString())
-                                    viewModel.correctByte?.observe(viewLifecycleOwner, {
+                                viewModel.getCorrectByte(viewModel.mAuth!!.value?.currentUser?.uid.toString())
+                                viewModel.correctByte?.observe(viewLifecycleOwner, {
 
-                                        if (viewModel.mFirebaseUser?.value!!.isEmailVerified) {
-                                            viewModel.getModel(viewModel.user, "")
-                                            successIn()
-                                        } else
-                                            stateLogin("Пожалуйста авторизуйте почту")
-                                    })
+                                    if (viewModel.mFirebaseUser?.value!!.isEmailVerified) {
+                                        viewModel.getModel(viewModel.user, "")
+                                        successIn()
+                                    } else
+                                        stateLogin("Пожалуйста авторизуйте почту")
+                                })
 
-                                }
+                            }
 
-                            })
+                        }
                 }
             }
 
@@ -70,22 +85,25 @@ class LoginFragment : Fragment() {
             if (viewModel.validateForm(binding.fieldEmail.text.toString(), binding.fieldPassword.text.toString()).state) {
                 activity?.let { create ->
                     viewModel.mAuth!!.value?.createUserWithEmailAndPassword(viewModel.user, viewModel.password)
-                        ?.addOnCompleteListener(create, OnCompleteListener<AuthResult?> { task ->
+                        ?.addOnCompleteListener(create) { task ->
 
                             if (!task.isSuccessful)
                                 stateLogin("Вы не авторизованы")
                             else {
                                 stateLogin("Проверьте почту")
                                 viewModel.mFirebaseUser?.value?.sendEmailVerification()
-                                viewModel.addBytesFirebase(viewModel.initKey(viewModel.mAuth!!.value?.currentUser?.uid.toString()), viewModel.mAuth!!.value?.currentUser?.uid.toString() )
+                                viewModel.addBytesFirebase(
+                                    viewModel.initKey(viewModel.mAuth!!.value?.currentUser?.uid.toString()),
+                                    viewModel.mAuth!!.value?.currentUser?.uid.toString()
+                                )
                             }
 
-                        })
+                        }
                 }
             }
         }
 
-        viewModel.stateLogin?.observe(viewLifecycleOwner, Observer {
+        viewModel.stateLogin?.observe(viewLifecycleOwner, {
 
             if (!it.state){
                 binding.fieldEmail.error = it.emailError
@@ -96,7 +114,7 @@ class LoginFragment : Fragment() {
 
         viewModel.updateFirebaseAuth(FirebaseAuth.getInstance())
 
-        viewModel.mAuth?.observe(viewLifecycleOwner, Observer {
+        viewModel.mAuth?.observe(viewLifecycleOwner, {
 
             if (it != null) {
 
